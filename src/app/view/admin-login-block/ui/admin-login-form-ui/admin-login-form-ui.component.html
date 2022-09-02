@@ -1,1 +1,31 @@
-<p>admin-login-form-ui works!</p>
+<form 
+    [formGroup]="formGroup"
+    (input)="onFormChange()"
+    (ngSubmit) ="onSubmit()"
+    >
+	<h2>Авторизация на сайте</h2>
+	<mat-form-field>
+		<mat-label>Логин</mat-label>
+		<input 
+		    matInput 
+		    formControlName="login">
+		<mat-error *ngIf="formGroup.hasError('required', 'login')">Поле логина обязательно</mat-error>
+	</mat-form-field>
+    
+    <br>
+
+	<mat-form-field>
+		<mat-label>Пароль</mat-label>
+		<input 
+		    matInput
+		    formControlName="password">
+		<mat-error *ngIf="formGroup.hasError('required', 'password')">Поле пароля обязательно</mat-error>
+	</mat-form-field>
+    
+    <mat-error *ngIf="formError">{{formError}}</mat-error>
+    <br>
+	<button 
+	    mat-raised-button 
+	    color="primary"
+	    [disabled]="formGroup.invalid || !!formError">Войти</button>
+</form>

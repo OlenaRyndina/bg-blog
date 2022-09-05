@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store';
 
 import { AdminGuestGuard } from './guards/admin-guest.guard';
 import { AdminAuthGuard } from './guards/admin-auth.guard';
@@ -9,6 +11,7 @@ import { AdminAuthGuard } from './guards/admin-auth.guard';
     declarations: [],
     imports: [
         CommonModule,
+        StoreModule.forFeature(DEFAULT_ROUTER_FEATURENAME, routerReducer),
         RouterModule.forChild([
             {
                 path: '',

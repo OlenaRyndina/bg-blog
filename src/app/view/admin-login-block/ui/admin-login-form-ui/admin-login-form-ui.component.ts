@@ -11,6 +11,7 @@ export class AdminLoginFormUiComponent implements OnInit {
     formGroup!: FormGroup;
 
     @Input() formError = '';
+    @Input() disabled?: boolean | null;
     @Output() login = new EventEmitter();
 
     constructor() { }

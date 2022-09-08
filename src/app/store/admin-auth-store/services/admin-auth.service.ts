@@ -3,18 +3,32 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { select, Store } from '@ngrx/store';
+
+import { getAccessToken } from '../store/admin-auth.selectors';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AdminAuthService {
+    accessToken?: string;
 
     constructor(
         private httpClient: HttpClient,
-        private jwtHelperService: JwtHelperService
-    ) { }
+        private jwtHelperService: JwtHelperService,
+        private store$: Store
+    ) { 
+        console.log(1);
+        this.store$.pipe(select(getAccessToken))
+            .subscribe(accessToken => {
+                this.accessToken = accessToken; 
+                /*accessToken ? this.accessToken = accessToken : null;*/
+                console.log(accessToken)}
+            );
+    }
 
     login(body: {login: string, password: string}) {
+        console.log(this.accessToken);
         return this.httpClient.post<{accessToken: string}>(
             'http://localhost:3000/auth/login', 
             body

@@ -4,7 +4,10 @@ import { login, loginSuccess, loginFailed } from './admin-auth.actions';
 export const ADMIN_AUTH_FEATURE_NAME = 'admin-auth';
 
 export interface AuthData {
-	accessToken: string
+	accessToken: string;
+	id: number;
+	iat: number;
+	exp: number;
 }
 
 export interface AdminAuthState {
@@ -30,13 +33,24 @@ export const AdminAuthReducer = createReducer(
 		state, {
 			type,
 		    ...authData 
-		}: {type: string} & AuthData) => ({
+		}) => ({
         ...state,
         authData,
         loaded: true,
         loading: false,
         serverError: ''
 	})),
+
+   /* on(loginSuccess, (state, { authData }) => ({
+    ...state,
+    authData,
+    loaded: true,
+    loading: false,
+    serverError: ''
+  })),*/
+
+
+
 	on(loginFailed, (state, {serverError}) => ({
 		...state,
 		authData: null,

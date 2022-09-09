@@ -3,33 +3,47 @@ import {
     HttpRequest,
     HttpHandler,
     HttpEvent,
-    HttpInterceptor
+    HttpInterceptor,
+    HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-import { AdminAuthService } from '../services/admin-auth.service';
+import { Observable, catchError, EMPTY } from 'rxjs';
+import { first, flatMap } from 'rxjs/operators';
+import { Store, select } from '@ngrx/store';
+import { getAccessToken } from '../store/admin-auth.selectors';
 
 @Injectable()
 export class AdminAuthInterceptor implements HttpInterceptor {
 
     constructor(
-        private adminAuthService: AdminAuthService
+        private store$: Store
     ) {}
 
     intercept(
         request: HttpRequest<unknown>, 
         next: HttpHandler
     ): Observable<HttpEvent<unknown>> {
-        console.log('good');
-        console.log(this.adminAuthService.accessToken);
-        if(this.adminAuthService.accessToken) {
-          console.log(this.adminAuthService.accessToken);
-          request = request.clone({
-            setHeaders: {
-                Authorization: `Bearer ${this.adminAuthService.accessToken}`
-            }
-          })
-        }
-        return next.handle(request);
+        return this.store$.pipe(
+            select(getAccessToken),
+            first(),
+            flatMap(token => {
+                const authRequest = token ? request.clone({
+                    setHeaders: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }) : request;
+
+                return next.handle(authRequest).pipe(
+                    catchError(err => {
+                        if (err instanceof HttpErrorResponse) {
+                            if (err.status === 401) {
+                                console.log('Redirect on login page or sign out');
+                                return EMPTY;
+                            }
+                        }
+                        throw err;
+                    })
+                );
+            })
+        );
     }
 }

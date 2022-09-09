@@ -21,7 +21,7 @@ export const getServerError = createSelector(
 
 export const getAuthData = createSelector(
     getFeature,
-    state => state.AuthData
+    state => state.authData
 );
 
 export const getAccessToken = createSelector(

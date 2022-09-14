@@ -4,10 +4,12 @@ import { StoreModule } from '@ngrx/store';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { JwtModule } from '@auth0/angular-jwt';
+import { Store } from '@ngrx/store';
 
 import { AdminAuthReducer, ADMIN_AUTH_FEATURE_NAME } from './store/admin-auth.reducer';
 import { AdminAuthEffects } from './store/admin-auth.effects';
 import { AdminAuthInterceptor } from './interceptors/admin-auth.interceptor';
+import { initAdminAuth } from './store/admin-auth.actions';
 
 @NgModule({
     declarations: [],
@@ -33,4 +35,8 @@ import { AdminAuthInterceptor } from './interceptors/admin-auth.interceptor';
         }
     ]
 })
-export class AdminAuthStoreModule { }
+export class AdminAuthStoreModule {
+    constructor(store$: Store) {
+        store$.dispatch(initAdminAuth());
+    }
+}

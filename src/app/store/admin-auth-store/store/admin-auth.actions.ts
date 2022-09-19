@@ -24,6 +24,10 @@ export const logoutSuccess = createAction(
     '[Admin Auth] logout success'
 );
 
+export const logout = createAction(
+    '[Admin Auth] logout'
+);
+
 export const extractLoginData = createAction(
     '[Admin Auth] extract login data'
 );

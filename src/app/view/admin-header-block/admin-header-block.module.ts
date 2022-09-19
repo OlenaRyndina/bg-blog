@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { AdminHeaderBlockComponent } from './blocks/admin-header-block/admin-header-block.component';
 
 
-
 @NgModule({
     declarations: [
         AdminHeaderBlockComponent

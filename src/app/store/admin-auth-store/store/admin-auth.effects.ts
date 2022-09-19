@@ -9,7 +9,7 @@ import { login, loginSuccess, loginFailed } from './admin-auth.actions';
 import { AdminAuthService } from '../services/admin-auth.service';
 import { AuthData } from './admin-auth.reducer';
 import { isAuth, getAuthData } from './admin-auth.selectors';
-import { initAdminAuth, logoutSuccess, extractLoginData } from './admin-auth.actions';
+import { initAdminAuth, logoutSuccess, extractLoginData, logout } from './admin-auth.actions';
 
 @Injectable()
 export class AdminAuthEffects {
@@ -86,6 +86,14 @@ export class AdminAuthEffects {
             );
         })
     ), {dispatch: false});
+
+    logout$ = createEffect(() => this.actions$.pipe(
+        ofType(logout),
+        map(() => {
+            localStorage.removeItem('authData');
+            return logoutSuccess();
+        })
+    ));
 
     constructor(
         private actions$: Actions,

@@ -7,8 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { AdminNavBlockComponent } from './blocks/admin-nav-block/admin-nav-block.component';
 import { NestedTreeUiComponent } from './ui/nested-tree-ui/nested-tree-ui.component';
-
-
+import { AdminMenuStoreModule } from '../../store/admin-menu-store/admin-menu-store.module';
 
 @NgModule({
     declarations: [
@@ -20,7 +19,8 @@ import { NestedTreeUiComponent } from './ui/nested-tree-ui/nested-tree-ui.compon
         RouterModule,
         MatTreeModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        AdminMenuStoreModule
     ],
     exports: [
         AdminNavBlockComponent

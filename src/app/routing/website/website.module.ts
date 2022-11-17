@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store';
 
 import { AdminGuestGuard } from './guards/admin-guest.guard';
-import { AdminAuthGuard } from './guards/admin-auth.guard';
+import { AdminAuthGuard } from './guards/admin-auth.guard'; 
 
 @NgModule({
     declarations: [],

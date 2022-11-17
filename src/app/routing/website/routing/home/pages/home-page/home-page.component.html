@@ -1,8 +1,14 @@
-<ul>
-  <li><a routerLink="">Home Page</a></li>
-  <li><a routerLink="admin/auth/login">Admin Login Page</a></li>
-  <li><a routerLink="admin/dashboard">Admin Dashboard Page</a></li>
-  <li><a routerLink="sdsdf">Not Found Page</a></li>
-</ul>
-
+<mat-toolbar color="primary">
+    <span>Discovery country</span>
+    <span class="example-spacer"></span>
+    <a class="menu__link menu__link-login" routerLink="admin/auth">
+        <span>Login</span>
+        <mat-icon>login</mat-icon>
+    </a>
+    <a class="menu__link" routerLink="admin/auth/registration">
+        <span>SignUp</span>
+        <mat-icon>add</mat-icon>
+    </a>
+</mat-toolbar>
+<router-outlet></router-outlet>
 <p>home-page works!</p>

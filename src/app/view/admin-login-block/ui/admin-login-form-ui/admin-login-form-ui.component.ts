@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-admin-login-form-ui',
@@ -14,7 +15,11 @@ export class AdminLoginFormUiComponent implements OnInit {
     @Input() disabled?: boolean | null;
     @Output() login = new EventEmitter();
 
-    constructor() { }
+    constructor(
+        private title: Title
+            ) { 
+            title.setTitle('Авторизация');
+        }
 
     ngOnInit(): void {
 

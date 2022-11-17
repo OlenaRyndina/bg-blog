@@ -1,8 +1,15 @@
 <section class="login-page">
-    <app-admin-login-block></app-admin-login-block>
-    <div>
-        <p>
+    <app-admin-login-block>
+        <div class="login-page__text">
+            <p>
             Нет аккаунта? <a [routerLink] = "'/admin/auth/registration'">Зарегистрироваться</a>
-        </p>
-    </div>
+            </p>
+        </div>
+        <div class="login-page__text">
+            <p>
+            Вернуться на сайт в качестве <a [routerLink] = "'/'"><strong>гостя</strong></a>
+            </p>
+        </div>
+    </app-admin-login-block>
 </section>
+

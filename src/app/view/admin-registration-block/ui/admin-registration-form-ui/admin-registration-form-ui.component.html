@@ -1,77 +1,64 @@
-<p class="text-xs-center">Регистрация для получения доступа</p>
-<form [formGroup] = "form" (ngSubmit) = "onSubmit()"> 
-	<div 
-	    class = "form-group"
-	    [ngClass] = "{'has-error': form.get('email').invalid && form.get('email').touched}"
-	    >
-		<label for = "email">Email</label>
+<h2 class="registration-form__caprion">Регистрация <br> <span>для получения доступа</span></h2>
+<form 
+    [formGroup]="form" 
+    (ngSubmit)="onSubmit()"> 
+	<mat-form-field>
+		<mat-label for="login">Логин</mat-label>
 		<input 
-		    type = "text"
-		    class = "form-control underlined"
-		    id = "email"
-		    placeholder = "Введите email"
-		    formControlName = "email"
+		    matInput
+		    type="text"
+		    id="login"
+		    formControlName="login"
 		    >
-		<span
-		    class = "form-help-text"
-		    *ngIf = "form.get('email').invalid && form.get('email').touched">
-		    <span *ngIf = "form.get('email')['errors']['required']">Email не может быть пустым</span>
-		    <span *ngIf = "form.get('email')['errors']['email']">Введите корректный email</span>
-		    <span *ngIf = "form.get('email')['errors']['forbiddenEmail']">Такой email уже существует.</span>
-		</span>
-
-	</div>
-	<div 
-	    class = "form-group"
-	    [ngClass] = "{'has-error': form.get('password').invalid && form.get('password').touched}"
->       
-		<label for = "password">Пароль</label>
+		<mat-error
+		    *ngIf="form.get('login').invalid && form.get('login').touched">
+		    <span *ngIf="form.get('login')['errors']['required']">Логин не может быть пустым</span>
+		    <span *ngIf="form.get('login')['errors']['forbiddenLogin']">Такой пользователь уже существует.</span>
+		</mat-error>
+	</mat-form-field>
+	<br>
+	<mat-form-field>       
+		<mat-label for="password">Пароль</mat-label>
 		<input 
-		    type = "text"
-		    class = "form-control underlined"
-		    id = "password"
-		    placeholder = "Введите пароль"
-		    formControlName = "password"
+		    matInput
+		    type="password"
+		    id="password"
+		    formControlName="password"
 		    >
-		<span
-		    class = "form-help-text"
-		    *ngIf = "form.get('password').invalid && form.get('password').touched">
-		    <span *ngIf = "form.get('password')['errors']['required']">Заполните поле Password.</span>
-		    <span *ngIf = "form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']">Пароль должен быть больше {{form.get('password')['errors']['minlength']['requiredLength']}}
+		<mat-error
+		    *ngIf="form.get('password').invalid && form.get('password').touched">
+		    <span *ngIf="form.get('password')['errors']['required']">Заполните поле Пароль.</span>
+		    <span *ngIf="form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']">Пароль должен быть меньше {{form.get('password')['errors']['minlength']['requiredLength']}}
 		        Вы ввели {{form.get('password')['errors']['minlength']['actualLength']}} символов.</span>
-		</span>
-	</div>
-	<div 
-	    class = "form-group"
-	    [ngClass] = "{'has-error': form.get('name').invalid && form.get('name').touched}"
-	    >
-		<label for = "name">Имя</label>
+		</mat-error>
+	</mat-form-field>
+	<br>
+	<mat-form-field>
+		<mat-label for="nickName">Имя</mat-label>
 		<input 
-		    type = "text"
-		    class = "form-control underlined"
-		    id = "name"
-		    placeholder = "Введите имя"
-		    formControlName = "name"
+            matInput
+		    type="text"
+		    id="nickName"
+		    formControlName="nickName"
 		    >
-		<span *ngIf = "form.get('name').invalid && form.get('name').touched">Введите свое имя.</span>
-	</div>
-	<div 
-	    class = "form-group"
-	    [ngClass] = "{'has-error': form.get('agree').invalid && form.get('agree').touched}"
-	    >
-		<label for = "agree">
-		    <input 
-		        type = "checkbox"
-		        class = "checkbox"
-		        id = "agree"
-		        formControlName = "agree"
-		        >
-		Согласен с правилами</label>
-	</div>
+		<mat-error 
+		    *ngIf="form.get('nickName').invalid && form.get('nickName').touched">
+		    Введите свое имя.
+		</mat-error>
+	</mat-form-field>
+	<br>
+    <mat-checkbox 
+		id="agree"
+		formControlName="agree">
+	    Согласен с правилами
+    </mat-checkbox>
+	<br>
 	<button
-	    type = "submit"
-		class = "btn btn-block btn-primary"
-		[disabled] = "form.invalid">Зарегистрироваться
+	    class="registration-form__btn"
+	    mat-raised-button 
+	    color="primary"
+	    type="submit"
+		[disabled]="form.invalid || disabled">Зарегистрироваться
 	</button>
 	
 </form>

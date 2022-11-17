@@ -1,10 +1,23 @@
-<section>
-    <app-admin-registration-block></app-admin-registration-block>
-    <div class = "form-group">
-        <p class = "text-muted text-xs-center">
+<section class="registration-page" [ngClass]="{hideSection: loaded$ | async}">
+    <app-admin-registration-block>
+        <div 
+            class = "form-group">
+            <p class = "registration-page__text">
             Уже есть аккаунт? <a [routerLink] = "'/admin/auth/login'">Войти</a>
-        </p>
-    </div>
+            </p>
+        </div>
+        <div class="login-page__text">
+            <p>
+            Вернуться на сайт в качестве <a [routerLink] = "'/'"><strong>гостя</strong></a>
+            </p>
+        </div>
+    </app-admin-registration-block>
 </section>
-
+<div 
+    class = "form-group enter"
+    *ngIf="loaded$ | async">
+    <p> <span class="text-thanks">Спасибо за регистрацию.</span> <br>Теперь вы можете зайти 
+        <a [routerLink] = "'/admin/auth/login'">на сайт.</a>
+    </p>
+</div>
 

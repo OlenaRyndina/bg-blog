@@ -1,5 +1,19 @@
 .login-page {
 	display: flex;
 	justify-content: center;
-	margin-top: 200px;
+	margin-top: 200px ;
 }
+
+a {
+	text-decoration: none;
+	color: #da087e;
+}
+
+a:visited {
+	color: #770746;
+}
+
+.login-page__text {
+	margin-top: 20px;
+}
+

@@ -1,9 +1,9 @@
+<h2>Авторизация на сайте</h2>
 <form 
     [formGroup]="formGroup"
     (input)="onFormChange()"
     (ngSubmit) ="onSubmit()"
     >
-	<h2>Авторизация на сайте</h2>
 	<mat-form-field>
 		<mat-label>Логин</mat-label>
 		<input 
@@ -30,4 +30,4 @@
 	    color="primary"
 	    [disabled]="disabled || formGroup.invalid || !!formError">Войти
 	</button>
-</form>
+</form> 

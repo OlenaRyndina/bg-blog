@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRegistrationFormUiComponent } from './ui/admin-registration-form-ui/admin-registration-form-ui.component';
@@ -20,6 +21,7 @@ import { AdminRegistrationBlockComponent } from './blocks/admin-registration-blo
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
     FormsModule
   ],

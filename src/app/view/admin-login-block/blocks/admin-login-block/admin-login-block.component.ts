@@ -15,14 +15,14 @@ export class AdminLoginBlockComponent implements OnInit {
 
     loading$: Observable<boolean> = this.store$.pipe(select(adminAuth.getLoading));
     loaded$: Observable<boolean> = this.store$.pipe(select(adminAuth.getLoaded));
-    serverError$: Observable<any> = this.store$.pipe(select(adminAuth.getServerError));;
+    serverError$: Observable<any> = this.store$.pipe(select(adminAuth.getServerError));
 
     serverError = '';
 
     constructor(
         private store$: Store,
         private httpClient: HttpClient
-    ) { }
+    ) {console.log(this.serverError$); }
 
     ngOnInit(): void {
     }
@@ -35,5 +35,4 @@ export class AdminLoginBlockComponent implements OnInit {
         this.httpClient.get('http://localhost:3000/auth/profile')
             .subscribe(console.log);
     }
-
 }

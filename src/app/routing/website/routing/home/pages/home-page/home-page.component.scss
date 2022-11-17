@@ -1,0 +1,15 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.menu__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fdfcd2;
+}
+
+.menu__link-login {
+  margin-right: 15px;
+}

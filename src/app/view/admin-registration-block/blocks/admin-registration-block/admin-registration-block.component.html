@@ -1,1 +1,13 @@
-<app-admin-registration-form-ui></app-admin-registration-form-ui>
+<app-admin-registration-form-ui
+    [formError]="serverError$ | async"
+    [disabled] = "loading$ | async"
+    (login) = "onCheckLogin($event)"
+    (singUp) = "onSignup($event)"
+    [failedLogin] = "loginIsFree">
+</app-admin-registration-form-ui>
+<ng-content></ng-content>
+<mat-error *ngIf="serverError$ | async">
+    что-то пошло не так :( 
+    <br> Попробуйте зарегистрироваться позже.
+</mat-error>
+

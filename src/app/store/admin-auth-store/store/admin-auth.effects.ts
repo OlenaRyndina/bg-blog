@@ -13,6 +13,13 @@ import { initAdminAuth, logoutSuccess, extractLoginData, logout } from './admin-
 
 @Injectable()
 export class AdminAuthEffects {
+
+    constructor(
+        private actions$: Actions,
+        private adminAuthService: AdminAuthService,
+        private store$: Store,
+        private router: Router
+    ){}
     
     login$ = createEffect(() => this.actions$.pipe(
         ofType(login),
@@ -82,7 +89,7 @@ export class AdminAuthEffects {
         skip(1),
         tap(isAuthorized => {
             this.router.navigateByUrl(
-                isAuthorized ? '/admin' : '/admin/auth/login'
+                isAuthorized ? '/admin' : '/'
             );
         })
     ), {dispatch: false});
@@ -95,10 +102,4 @@ export class AdminAuthEffects {
         })
     ));
 
-    constructor(
-        private actions$: Actions,
-        private adminAuthService: AdminAuthService,
-        private store$: Store,
-        private router: Router
-    ){}
 }

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Store, select } from '@ngrx/store';
+import * as adminReg from '../../../../../../store/admin-reg-store/store/admin-reg.selectors';
 
 @Component({
   selector: 'app-registration-page',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationPageComponent implements OnInit {
 
-  constructor() { }
+    loaded$: Observable<boolean> = this.store$.pipe(select(adminReg.getLoaded));
 
-  ngOnInit(): void {
-  }
+    constructor(
+        private store$: Store
+    ) { }
+
+    ngOnInit(): void {
+    }
 
 }

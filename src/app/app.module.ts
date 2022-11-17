@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { AdminAuthStoreModule } from './store/admin-auth-store/admin-auth-store.module';
+import { AdminRegStoreModule } from './store/admin-reg-store/admin-reg-store.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AdminAuthStoreModule } from './store/admin-auth-store/admin-auth-store.
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
-    AdminAuthStoreModule
+    AdminAuthStoreModule,
+    AdminRegStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

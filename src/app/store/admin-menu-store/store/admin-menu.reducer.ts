@@ -39,12 +39,12 @@ export const AdminMenuReducer = createReducer(
 		serverError: null,
 		data: action.data
 	})),
-    on(initMenuFailed, (state, action) => ({
+  on(initMenuFailed, (state, action) => ({
     	...state,
     	loading: false,
     	loaded: true,
     	serverError: action.serverError,
     	data: []
     })),
-    on(logoutSuccess, () => initialState)
+  on(logoutSuccess, () => initialState)
 );

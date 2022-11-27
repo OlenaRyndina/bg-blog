@@ -5,8 +5,7 @@ import { of } from 'rxjs';
 import { withLatestFrom, filter, switchMap, map, catchError } from 'rxjs/operators';
 
 import { AdminMenuService } from '../services/admin-menu.service';
-/*import { AuthData } from './admin-menu.reducer';
-*/import { getLoaded, getLoading } from './admin-menu.selectors';
+import { getLoaded, getLoading } from './admin-menu.selectors';
 import { initMenu, initMenuFailed, initMenuSuccess } from './admin-menu.actions';
 
 @Injectable()

@@ -24,6 +24,6 @@ import { AdminMenuStoreModule } from '../../store/admin-menu-store/admin-menu-st
     ],
     exports: [
         AdminNavBlockComponent
-  ]
+    ]
 })
 export class AdminNavBlockModule { }

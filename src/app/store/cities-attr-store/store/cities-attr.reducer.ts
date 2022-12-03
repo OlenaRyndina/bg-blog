@@ -1,6 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
 
-import { initCitiesAttrData, initCitiesAttrDataSuccess, initCitiesAttrDataFailed } from './cities-attr.actions';
+import { 
+	  initCitiesAttrData, 
+	  initCitiesAttrDataSuccess, 
+	  initCitiesAttrDataFailed,
+	  editCitiesAttrData,
+	  editCitiesAttrDataSuccess,
+	  editCitiesAttrDataFailed } from './cities-attr.actions';
 
 export const CITIES_ATTR_DATA_FEATURE_NAME = 'cities-attr';
 
@@ -51,5 +57,23 @@ export const CitiesAttrReducer = createReducer(
     	loaded: true,
     	serverError: action.serverError,
     	data: []
-    }))
+    })),
+  on(editCitiesAttrData, state => state.loaded ? state : {
+		...state,
+		loading: true
+	}),
+	on(editCitiesAttrDataSuccess, (state, action) => ({
+		...state,
+		loading: false,
+		loaded: true,
+		serverError: null,
+		data: action.data
+	})),
+	on(editCitiesAttrDataFailed, (state, action) => ({
+    	...state,
+    	loading: false,
+    	loaded: true,
+    	serverError: action.serverError,
+    	data: []
+    })),
 );

@@ -9,9 +9,13 @@ import { CitiesAttr } from '../store/cities-attr.reducer';
 
 export class CitiesAttrService {
 
-  constructor(private httpClient: HttpClient) { }
+    constructor(private httpClient: HttpClient) { }
 
-  getCitiesAttr() {
-    return this.httpClient.get<CitiesAttr[]>('http://localhost:3000/city-attr');
-  }
+    getCitiesAttr() {
+        return this.httpClient.get<CitiesAttr[]>('http://localhost:3000/city-attr');
+    }
+
+    editCityAttrData(attr) {
+        return this.httpClient.put<CitiesAttr>(`http://localhost:3000/city-attr/${attr.id}`, attr);    
+    }
 }

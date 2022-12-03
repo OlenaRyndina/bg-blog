@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>{{cityAttr.cityName}}</h1>
+<hr>
+<div mat-dialog-content>
+	<h2>{{cityAttr.nameCityAttractions}}</h2>
+    <p>адреса: {{cityAttr.adress}}</p>
+    <p>телефон: {{cityAttr.phone}}</p>
+    <p>сайт: 
+    	<a href="{{cityAttr.site}}" 
+    	   target="=_blank"> 
+    	   {{cityAttr.site}} 
+    	</a>
+    </p>
+    <p>робочі часи: {{cityAttr.workHours}}</p>
+    <p>вхідна ціна: {{cityAttr.ticketPrice}} грн</p>
+    <p>вподобайка: {{cityAttr.like}}</p>
+</div>
+<div mat-dialog-actions>
+    <button 
+        mat-button 
+        mat-dialog-close>Close</button>
+</div>

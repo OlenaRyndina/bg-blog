@@ -16,3 +16,17 @@ export const initCitiesAttrDataFailed = createAction(
     props<{serverError: string}>()
 );
 
+export const editCitiesAttrData = createAction(
+    '[Cities Attr] edit',
+    props<{data: CitiesAttr}>()
+)
+
+export const editCitiesAttrDataSuccess = createAction(
+    '[Cities Attr] edit success',
+    props<{data: CitiesAttr[]}>()
+)
+
+export const editCitiesAttrDataFailed = createAction(
+    '[Cities Attr] edit failed',
+    props<{serverError: string}>()
+)

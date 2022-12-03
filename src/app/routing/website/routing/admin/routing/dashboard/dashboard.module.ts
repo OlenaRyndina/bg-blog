@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { CitiesAttrBlockModule } from '../../../../../../view/cities-attr-block/cities-attr-block.module';
 
 
 
@@ -12,6 +13,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     ],
     imports: [
         CommonModule,
+        CitiesAttrBlockModule,
         RouterModule.forChild([
             {
                 path: '',

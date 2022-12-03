@@ -1,0 +1,88 @@
+<form
+    *ngIf="editCityAttractions"
+    #form="ngForm"
+    (ngSubmit)="onSubmit(form)"> 	
+    <mat-form-field 
+        appearance="fill">
+        <mat-label>місто</mat-label>
+        <input 
+            matInput
+            name="cityName"
+            #cityName="ngModel"
+            [ngModel]="editCityAttractions.cityName">
+    </mat-form-field>
+
+    <mat-form-field 
+        appearance="fill">
+        <mat-label>тип</mat-label>
+        <input 
+            matInput
+            [ngModel]="editCityAttractions.cityAttractions"
+            name="cityAttractions"
+            #cityAttractions="ngModel">
+    </mat-form-field>
+
+    <mat-form-field 
+        appearance="fill">
+        <mat-label>адреса</mat-label>
+        <input 
+            matInput
+            [ngModel]="editCityAttractions.adress"
+            name="adress"
+            #adress="ngModel">
+    </mat-form-field>
+
+    <mat-form-field 
+        appearance="fill">
+        <mat-label>назва</mat-label>
+        <input 
+            matInput
+            [ngModel]="editCityAttractions.nameCityAttractions"
+            name="nameCityAttractions"
+            #nameCityAttractions="ngModel">
+    </mat-form-field>
+
+    <mat-form-field 
+        appearance="fill">
+        <mat-label>телефон</mat-label>
+        <input 
+            matInput
+            [ngModel]="editCityAttractions.phone"
+            name="phone"
+            #phone="ngModel">
+    </mat-form-field>
+
+    <mat-form-field 
+        appearance="fill">
+        <mat-label>сайт</mat-label>
+        <input 
+            matInput
+            [ngModel]="editCityAttractions.site"
+            name="site"
+            #site="ngModel">
+    </mat-form-field>
+
+    <mat-form-field 
+        appearance="fill">
+        <mat-label>вхідна ціна</mat-label>
+        <input 
+            matInput
+            [ngModel]="editCityAttractions.ticketPrice"
+            name="ticketPrice"
+            #ticketPrice="ngModel">
+    </mat-form-field>
+
+    <mat-form-field 
+        appearance="fill">
+        <mat-label>час відвідування</mat-label>
+        <input 
+            matInput
+            [ngModel]="editCityAttractions.workHours"
+            name="workHours"
+            #workHours="ngModel">
+    </mat-form-field>
+    <button 
+        mat-raised-button 
+        color="primary" 
+        type="submit">Редагувати данні</button>
+</form>

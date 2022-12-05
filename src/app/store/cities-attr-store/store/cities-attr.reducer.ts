@@ -6,11 +6,17 @@ import {
 	  initCitiesAttrDataFailed,
 	  editCitiesAttrData,
 	  editCitiesAttrDataSuccess,
-	  editCitiesAttrDataFailed } from './cities-attr.actions';
+	  editCitiesAttrDataFailed,
+	  openFormAttrData,
+	  closeFormAttrData,
+	  addCitiesAttrData,
+	  addCitiesAttrDataSuccess,
+	  addCitiesAttrDataFailed } from './cities-attr.actions';
 
 export const CITIES_ATTR_DATA_FEATURE_NAME = 'cities-attr';
 
 export interface CitiesAttr {
+	id?: number;
   cityName: string;
 	cityAttractions: string;
 	nameCityAttractions: string;
@@ -27,6 +33,7 @@ export interface CitiesAttr {
 export interface CitiesAttrDataState {
 	loading: boolean;
 	loaded: boolean;
+	formIsOpen: boolean;
 	serverError: string;
 	data?: any;
 }
@@ -34,6 +41,7 @@ export interface CitiesAttrDataState {
 const initialState: CitiesAttrDataState = {
     loaded: false,
     loading: false,
+    formIsOpen: false,
     serverError: '',
     data: []
 };
@@ -58,6 +66,14 @@ export const CitiesAttrReducer = createReducer(
     	serverError: action.serverError,
     	data: []
     })),
+  on(openFormAttrData, (state => ({
+  	  ...state,
+      formIsOpen: true
+  }))),
+  on(closeFormAttrData, (state => ({
+  	  ...state,
+  	  formIsOpen: false
+  }))),
   on(editCitiesAttrData, state => state.loaded ? state : {
 		...state,
 		loading: true
@@ -66,6 +82,7 @@ export const CitiesAttrReducer = createReducer(
 		...state,
 		loading: false,
 		loaded: true,
+		formIsOpen: false,
 		serverError: null,
 		data: action.data
 	})),
@@ -75,5 +92,24 @@ export const CitiesAttrReducer = createReducer(
     	loaded: true,
     	serverError: action.serverError,
     	data: []
-    })),
+  })),
+  on(addCitiesAttrData, state => state.loaded ? state : {
+		...state,
+		loading: true
+	}),
+	on(addCitiesAttrDataSuccess, (state, action) => ({
+		...state,
+		loading: false,
+		loaded: true,
+		formIsOpen: false,
+		serverError: null,
+		data: action.data
+	})),
+	on(addCitiesAttrDataFailed, (state, action) => ({
+    	...state,
+    	loading: false,
+    	loaded: true,
+    	serverError: action.serverError,
+    	data: []
+  })),
 );

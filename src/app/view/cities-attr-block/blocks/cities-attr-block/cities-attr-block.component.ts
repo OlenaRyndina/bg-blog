@@ -3,9 +3,16 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 
 import { CitiesAttr } from '../../../../store/cities-attr-store/store/cities-attr.reducer';
-import { initCitiesAttrData, editCitiesAttrData } from '../../../../store/cities-attr-store/store/cities-attr.actions';
+import { 
+    initCitiesAttrData, 
+    editCitiesAttrData, 
+    openFormAttrData,
+    closeFormAttrData,
+    addCitiesAttrData
+} from '../../../../store/cities-attr-store/store/cities-attr.actions';
 import * as citiesAttrSelect from '../../../../store/cities-attr-store/store/cities-attr.selectors';
 import { isAuth } from '../../../../store/admin-auth-store/store/admin-auth.selectors';
+import { getFormIsOpen } from '../../../../store/cities-attr-store/store/cities-attr.selectors';
 
 
 @Component({
@@ -17,6 +24,7 @@ export class CitiesAttrBlockComponent implements OnInit {
 
     citiesAttrData$: Observable<CitiesAttr[]> = this.store$.pipe(select(citiesAttrSelect.getCitiesAttrData));
     isAuth$: Observable<boolean> = this.store$.pipe(select(isAuth));
+    getFormIsOpen$: Observable<boolean> = this.store$.pipe(select(getFormIsOpen));
     edCityAttr: CitiesAttr;
 
     constructor(private store$: Store) { }
@@ -27,9 +35,22 @@ export class CitiesAttrBlockComponent implements OnInit {
 
     editAttr(attr) {
         this.edCityAttr = attr;
+        this.store$.dispatch(openFormAttrData());
     }
 
     edCurrentAttr(curAttr) {
         this.store$.dispatch(editCitiesAttrData(curAttr))
+    }
+
+    addAttr() {
+        this.store$.dispatch(openFormAttrData());
+    }
+
+    addNewAttr(curAttr) {
+        this.store$.dispatch(addCitiesAttrData(curAttr));
+    }
+
+    closeForm() {
+        this.store$.dispatch(closeFormAttrData());
     }
 }

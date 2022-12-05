@@ -5,7 +5,8 @@ import {
     EventEmitter,
     OnChanges, 
     SimpleChanges, 
-    ViewChild } from '@angular/core';
+    ViewChild,
+    TemplateRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -25,8 +26,13 @@ export class CitiesAttrListComponent implements OnChanges {
     @Input() isAuth: boolean;
     @Output() editCityAttr = new EventEmitter<CitiesAttr>();
 
+    @Input() formIsOpen: boolean;
+    @Output() addCityAttr = new EventEmitter<CitiesAttr>();
+
     displayedColumns: string[] = ['cityName', 'nameCityAttractions', 'adress', 'phone', 'more'];
     dataSource: MatTableDataSource<CitiesAttr>;
+
+    chosenRow;
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
@@ -55,7 +61,6 @@ export class CitiesAttrListComponent implements OnChanges {
     }
 
     openDialog(row) {
-
         const dialogRef = this.dialog.open(CitiesAttrDialogComponent, {
             width: '250px',
             data: row
@@ -67,7 +72,12 @@ export class CitiesAttrListComponent implements OnChanges {
     }
 
     editAttr(row) {
+        this.chosenRow = row.id;
         this.editCityAttr.emit(row);
+    }
+
+    addAttr() {
+        this.addCityAttr.emit();
     }
 }
 

@@ -1,5 +1,5 @@
 <form
-    *ngIf="editCityAttractions"
+    *ngIf="formIsOpen"
     #form="ngForm"
     (ngSubmit)="onSubmit(form)"> 	
     <mat-form-field 
@@ -81,8 +81,14 @@
             name="workHours"
             #workHours="ngModel">
     </mat-form-field>
-    <button 
-        mat-raised-button 
-        color="primary" 
-        type="submit">Редагувати данні</button>
+    <div class="btn-container">
+        <button 
+            mat-raised-button  
+            type="button"
+            (click)="cancel()">Скасувати</button>
+        <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit">Надіслати</button>
+    </div>
 </form>

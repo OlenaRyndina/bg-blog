@@ -18,4 +18,8 @@ export class CitiesAttrService {
     editCityAttrData(attr) {
         return this.httpClient.put<CitiesAttr>(`http://localhost:3000/city-attr/${attr.id}`, attr);    
     }
+
+    addCityAttrData(attr) {
+        return this.httpClient.post<CitiesAttr>('http://localhost:3000/city-attr', attr);  
+    }
 }

@@ -1,11 +1,18 @@
-/*:host {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}*/
-
-.mat-form-field {
+form {
   display: block;
   width: 50%;
   margin: 0 auto;
+}
+
+.mat-form-field {
+  display: block;
+}
+
+button[type="button"] {
+  margin-right: 5px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: right;
 }

@@ -12,7 +12,10 @@ import {
     initCitiesAttrDataFailed,
     editCitiesAttrData,
     editCitiesAttrDataSuccess,
-    editCitiesAttrDataFailed } from './cities-attr.actions';
+    editCitiesAttrDataFailed,
+    addCitiesAttrData,
+    addCitiesAttrDataSuccess,
+    addCitiesAttrDataFailed } from './cities-attr.actions';
 
 @Injectable()
 export class CitiesAttrEffects {
@@ -45,6 +48,17 @@ export class CitiesAttrEffects {
             map(data => editCitiesAttrDataSuccess({data})),
             catchError(error => of(
                 editCitiesAttrDataFailed({serverError: error.serverError})
+            ))
+        ))    
+    ))
+
+    addCitiesAttrData$ = createEffect(() => this.actions$.pipe(
+        ofType(addCitiesAttrData),
+        switchMap(data => this.citiesAttrService.addCityAttrData(data)),
+        switchMap(() => this.citiesAttrService.getCitiesAttr().pipe(
+            map(data => addCitiesAttrDataSuccess({data})),
+            catchError(error => of(
+                addCitiesAttrDataFailed({serverError: error.serverError})
             ))
         ))    
     ))

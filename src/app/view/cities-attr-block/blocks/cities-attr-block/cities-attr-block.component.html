@@ -1,10 +1,15 @@
 <app-cities-attr-list 
     [citiesAttr] = "citiesAttrData$ | async"
     [isAuth] = "isAuth$ | async"
-    (editCityAttr) = "editAttr($event)">
+    (editCityAttr) = "editAttr($event)"
+    [formIsOpen] = "getFormIsOpen$ | async"
+    (addCityAttr) = "addAttr()">
 </app-cities-attr-list>
 <app-cities-attr-form
     [editCityAttractions] = "edCityAttr"
-    (editCurrentAttr) = "edCurrentAttr($event)">
+    (editCurrentAttr) = "edCurrentAttr($event)"
+    (addCurrentAttr) = "addNewAttr($event)"
+    [formIsOpen] = "getFormIsOpen$ | async"
+    (closeFormAttr) = "closeForm()">
 </app-cities-attr-form>
  

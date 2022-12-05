@@ -23,3 +23,8 @@ export const getCitiesAttrData = createSelector(
     getFeature,
     state => state.data
 );
+
+export const getFormIsOpen = createSelector(
+    getFeature,
+    state => state.formIsOpen
+);

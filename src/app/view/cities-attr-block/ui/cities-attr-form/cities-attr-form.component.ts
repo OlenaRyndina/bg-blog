@@ -1,9 +1,14 @@
 import { 
     Component, 
     OnInit, 
+    OnChanges, 
+    SimpleChanges,
     Input,
     Output,
-    EventEmitter
+    ViewChild,
+    EventEmitter,
+    Renderer2,
+    ElementRef
      } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NgForm } from '@angular/forms';
@@ -17,7 +22,7 @@ import { CityAttractions } from '../../../../store/cities-attr-store/models/City
   templateUrl: './cities-attr-form.component.html',
   styleUrls: ['./cities-attr-form.component.scss']
 })
-export class CitiesAttrFormComponent implements OnInit{
+export class CitiesAttrFormComponent implements OnInit, OnChanges{
     @Input() editCityAttractions: CitiesAttr;
     @Output() editCurrentAttr = new EventEmitter<CitiesAttr>();
     @Output() addCurrentAttr = new EventEmitter<CitiesAttr>()
@@ -25,12 +30,22 @@ export class CitiesAttrFormComponent implements OnInit{
     @Input() formIsOpen: boolean;
     @Output() closeFormAttr = new EventEmitter<any>();
 
+    @Input() formCoord: number;
+
+    @ViewChild('formContainer') form: ElementRef<HTMLInputElement>;
+
+    constructor(private renderer: Renderer2) {}
+
     ngOnInit() {
         if (!this.editCityAttractions) {
             let newCityAttr = new CityAttractions();
 
             this.editCityAttractions = newCityAttr;
         } 
+    }
+
+    ngOnChanges(changes: SimpleChanges){
+        this.renderer.setStyle(this.form.nativeElement, 'top', `${this.formCoord + window.pageYOffset - 100}px`);
     }
 
     onSubmit(form: NgForm) {

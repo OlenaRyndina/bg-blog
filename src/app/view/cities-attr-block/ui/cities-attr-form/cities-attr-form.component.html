@@ -1,4 +1,7 @@
-<form
+<div 
+    #formContainer
+    class="form-container">
+    <form
     *ngIf="formIsOpen"
     #form="ngForm"
     (ngSubmit)="onSubmit(form)"> 	
@@ -92,3 +95,4 @@
             type="submit">Надіслати</button>
     </div>
 </form>
+</div>

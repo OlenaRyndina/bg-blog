@@ -1,7 +1,16 @@
+.form-container {
+  display: block;
+  width: 80vw;
+  position: absolute; 
+  margin-left: 20px;
+}
+
 form {
   display: block;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
+  background-color: #fff;
+  padding: 10px;
 }
 
 .mat-form-field {

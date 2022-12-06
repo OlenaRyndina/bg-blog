@@ -6,7 +6,7 @@ import {
     OnChanges, 
     SimpleChanges, 
     ViewChild,
-    TemplateRef } from '@angular/core';
+    ElementRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -25,6 +25,7 @@ export class CitiesAttrListComponent implements OnChanges {
     @Input() citiesAttr: CitiesAttr[] = [];
     @Input() isAuth: boolean;
     @Output() editCityAttr = new EventEmitter<CitiesAttr>();
+    @Output() coordY = new EventEmitter<number>();
 
     @Input() formIsOpen: boolean;
     @Output() addCityAttr = new EventEmitter<CitiesAttr>();
@@ -36,6 +37,8 @@ export class CitiesAttrListComponent implements OnChanges {
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
+
+    @ViewChild('tableRow') tableRow: ElementRef<HTMLInputElement>;
 
 
     constructor(
@@ -71,12 +74,16 @@ export class CitiesAttrListComponent implements OnChanges {
         });
     }
 
-    editAttr(row) {
+    editAttr(row, tableRow) {
+        let coordY = tableRow.parentElement.getBoundingClientRect().bottom;
+        console.log(tableRow);
         this.chosenRow = row.id;
         this.editCityAttr.emit(row);
+        this.coordY.emit(coordY);
     }
 
     addAttr() {
+        this.chosenRow = undefined;
         this.addCityAttr.emit();
     }
 }

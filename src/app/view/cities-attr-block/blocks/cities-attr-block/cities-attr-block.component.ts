@@ -26,6 +26,7 @@ export class CitiesAttrBlockComponent implements OnInit {
     isAuth$: Observable<boolean> = this.store$.pipe(select(isAuth));
     getFormIsOpen$: Observable<boolean> = this.store$.pipe(select(getFormIsOpen));
     edCityAttr: CitiesAttr;
+    formDirection: number;
 
     constructor(private store$: Store) { }
 
@@ -38,9 +39,13 @@ export class CitiesAttrBlockComponent implements OnInit {
         this.store$.dispatch(openFormAttrData());
     }
 
+    changeCoordY(coordY) {
+        this.formDirection = coordY;
+    }
+
     edCurrentAttr(curAttr) {
         this.store$.dispatch(editCitiesAttrData(curAttr))
-    }
+    } 
 
     addAttr() {
         this.store$.dispatch(openFormAttrData());

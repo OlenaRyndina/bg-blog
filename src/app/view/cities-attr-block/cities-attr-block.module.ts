@@ -13,7 +13,7 @@ import { CitiesAttrListComponent } from './ui/cities-attr-list/cities-attr-list.
 import { CitiesAttrStoreModule } from '../../store/cities-attr-store/cities-attr-store.module';
 import { CitiesAttrDialogComponent } from './ui/cities-attr-dialog/cities-attr-dialog.component';
 import { CitiesAttrFormComponent } from './ui/cities-attr-form/cities-attr-form.component';
-
+import { MessageComponent } from '../ui/message/message.component';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { CitiesAttrFormComponent } from './ui/cities-attr-form/cities-attr-form.
     CitiesAttrBlockComponent,
     CitiesAttrListComponent,
     CitiesAttrDialogComponent,
-    CitiesAttrFormComponent
+    CitiesAttrFormComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +37,8 @@ import { CitiesAttrFormComponent } from './ui/cities-attr-form/cities-attr-form.
   ],
   exports: [
         CitiesAttrBlockComponent,
-        CitiesAttrListComponent
+        CitiesAttrListComponent,
+        MessageComponent
     ]
 })
 

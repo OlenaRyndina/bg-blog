@@ -15,12 +15,12 @@ import { NgForm } from '@angular/forms';
 
 import { CitiesAttr } from '../../../../store/cities-attr-store/store/cities-attr.reducer';
 import { CityAttractions } from '../../../../store/cities-attr-store/models/CityAttractions.model';
-
+import { Message } from '../../../ui/message/message.model';
 
 @Component({
-  selector: 'app-cities-attr-form',
-  templateUrl: './cities-attr-form.component.html',
-  styleUrls: ['./cities-attr-form.component.scss']
+    selector: 'app-cities-attr-form',
+    templateUrl: './cities-attr-form.component.html',
+    styleUrls: ['./cities-attr-form.component.scss']
 })
 export class CitiesAttrFormComponent implements OnInit, OnChanges{
     @Input() editCityAttractions: CitiesAttr;
@@ -34,6 +34,8 @@ export class CitiesAttrFormComponent implements OnInit, OnChanges{
 
     @ViewChild('formContainer') form: ElementRef<HTMLInputElement>;
 
+    message: Message;
+
     constructor(private renderer: Renderer2) {}
 
     ngOnInit() {
@@ -45,7 +47,9 @@ export class CitiesAttrFormComponent implements OnInit, OnChanges{
     }
 
     ngOnChanges(changes: SimpleChanges){
-        this.renderer.setStyle(this.form.nativeElement, 'top', `${this.formCoord + window.pageYOffset - 100}px`);
+        if(this.form) {
+            this.renderer.setStyle(this.form.nativeElement, 'top', `${this.formCoord + window.pageYOffset - 100}px`);
+        }
     }
 
     onSubmit(form: NgForm) {
@@ -67,6 +71,8 @@ export class CitiesAttrFormComponent implements OnInit, OnChanges{
         }
         this.editCityAttractions = new CityAttractions();
         this.closeFormAttr.emit();
+        this.message = new Message('success', 'Дякуємо, ваші данні внесено');
+
     }
 
     cancel() {

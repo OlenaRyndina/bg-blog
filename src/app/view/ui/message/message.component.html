@@ -1,0 +1,6 @@
+<div 
+    @fade
+    class = "alert alert-{{createMessage.type}}" 
+    *ngIf = "createMessage.text">{{createMessage.text}}
+</div>
+<!-- type: success, danger, warning -->

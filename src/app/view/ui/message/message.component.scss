@@ -1,0 +1,40 @@
+:host {
+	display: flex;
+	justify-content: center;
+	--success-color: #c4e2c7;
+    --success-color-dark: #457958;
+
+    --danger-color: #f8c4bc;
+    --danger-color-dark: #98301f;
+
+    --warning-color: #f8f2c9;
+    --warning-color-dark: #a79d56;
+}
+
+.alert {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid;
+    font: 200 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    padding: 10px;
+}
+
+.alert-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color-dark);
+}
+
+.alert-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color-dark);
+}
+
+.alert-warning {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color-dark);
+}

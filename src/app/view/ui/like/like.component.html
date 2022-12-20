@@ -1,0 +1,9 @@
+<span>{{likesAmount}}</span> 
+<mat-icon 
+    class="mat-icon"
+    [ngClass]="{liked: isLiked}"  
+    *ngIf="isAuth$ | async"  
+    (click)="likeCount()">
+    favorite
+</mat-icon>
+            

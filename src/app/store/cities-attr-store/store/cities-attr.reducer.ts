@@ -11,7 +11,8 @@ import {
 	  closeFormAttrData,
 	  addCitiesAttrData,
 	  addCitiesAttrDataSuccess,
-	  addCitiesAttrDataFailed } from './cities-attr.actions';
+	  addCitiesAttrDataFailed,
+	  addLike } from './cities-attr.actions';
 
 export const CITIES_ATTR_DATA_FEATURE_NAME = 'cities-attr';
 
@@ -28,6 +29,7 @@ export interface CitiesAttr {
 	coordX: string;
 	coordY: string;
 	like: number;
+	isLiked?: boolean;
 }
 
 export interface CitiesAttrDataState {
@@ -94,16 +96,16 @@ export const CitiesAttrReducer = createReducer(
     	data: []
   })),
   on(addCitiesAttrData, state => state.loaded ? state : {
-		...state,
-		loading: true
+		  ...state,
+		  loading: true
 	}),
 	on(addCitiesAttrDataSuccess, (state, action) => ({
-		...state,
-		loading: false,
-		loaded: true,
-		formIsOpen: false,
-		serverError: null,
-		data: action.data
+		  ...state,
+		  loading: false,
+		  loaded: true,
+		  formIsOpen: false,
+		  serverError: null,
+		  data: action.data
 	})),
 	on(addCitiesAttrDataFailed, (state, action) => ({
     	...state,
@@ -112,4 +114,8 @@ export const CitiesAttrReducer = createReducer(
     	serverError: action.serverError,
     	data: []
   })),
+  on(addLike, (state, action) => ({
+  	...state,
+  	data: action.data
+  }))
 );

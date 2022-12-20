@@ -1,11 +1,20 @@
+<app-cities-attr-filter
+    [citiesAttractions] = "citiesAttrData$ | async"
+    (filteredAttrs) = "changeFilteredList($event)">
+</app-cities-attr-filter>
 
 <app-cities-attr-list 
     [citiesAttr] = "citiesAttrData$ | async"
     [isAuth] = "isAuth$ | async"
     (editCityAttr) = "editAttr($event)"
+    [curChangedAttr] = "curChangedCityAttr"
     (coordY) = "changeCoordY($event)"
     [formIsOpen] = "getFormIsOpen$ | async"
-    (addCityAttr) = "addAttr()">
+    (addCityAttr) = "addAttr()"
+    [filteredListAttr] = "citiesFilteredAttrData"
+    (likeAttr) = "likeCount($event)"
+    [likes]= "likesData$ | async"
+    (changeAttrLikes) = "changeLikes($event)">
 </app-cities-attr-list>
 
 <app-cities-attr-form

@@ -17,7 +17,7 @@ import { AdminRegStoreModule } from './store/admin-reg-store/admin-reg-store.mod
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

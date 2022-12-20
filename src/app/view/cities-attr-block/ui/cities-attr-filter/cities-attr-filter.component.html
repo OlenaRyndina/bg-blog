@@ -1,0 +1,40 @@
+<h2>Сортувати за:</h2>
+<form #form="ngForm" 
+      (ngSubmit)="onSubmit(form)">
+	<mat-form-field appearance="fill" class="form-item">
+        <mat-label>Select an option</mat-label>
+        <mat-select [(ngModel)]=city  name="city">
+            <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-item">
+        <mat-label>Select an option</mat-label>
+        <mat-select [(ngModel)]=cityAttr  name="cityAttr">
+            <mat-option *ngFor="let attr of cityAttrs" [value]="attr">{{attr}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <section class="form-item form-section">
+    	<h4>За популярністю:</h4>
+    	<mat-radio-group aria-label="Select an option" [(ngModel)]=rating  name="rating">
+    	    <mat-radio-button class="checkbox-margin" value="increase">за збільшенням</mat-radio-button>
+            <mat-radio-button class="checkbox-margin" value="decrease">за зменшенням</mat-radio-button>	
+    	</mat-radio-group>
+    </section>
+
+    <section class="form-item form-section">
+    	<h4>Вартість квітка:</h4>
+    	<mat-radio-group aria-label="Select an option" [(ngModel)]=price  name="price">
+    	    <mat-radio-button class="checkbox-margin" value="free">безкоштовно</mat-radio-button>
+            <mat-radio-button class="checkbox-margin" value="lessThan">до 100 грн</mat-radio-button>	
+            <mat-radio-button class="checkbox-margin" value="all">всі</mat-radio-button>
+    	</mat-radio-group>
+    </section>
+
+	<button mat-raised-button type="submit">Застосувати</button>
+</form>
+
+<app-message
+    *ngIf = "message"
+    [createMessage] = "message"></app-message>

@@ -1,16 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 
 import { CitiesAttr } from '../../../../store/cities-attr-store/store/cities-attr.reducer';
+import { AdminLikes } from '../../../../store/admin-likes-store/store/admin-likes.reducer';
+
 import { 
     initCitiesAttrData, 
     editCitiesAttrData, 
     openFormAttrData,
     closeFormAttrData,
-    addCitiesAttrData
+    addCitiesAttrData,
+    addLike
 } from '../../../../store/cities-attr-store/store/cities-attr.actions';
+import { 
+    initAdminLikesData,
+    editAdminLikesData
+} from '../../../../store/admin-likes-store/store/admin-likes.actions';
+
 import * as citiesAttrSelect from '../../../../store/cities-attr-store/store/cities-attr.selectors';
+import * as adminLikesSelect from '../../../../store/admin-likes-store/store/admin-likes.selectors';
+
 import { isAuth } from '../../../../store/admin-auth-store/store/admin-auth.selectors';
 import { getFormIsOpen } from '../../../../store/cities-attr-store/store/cities-attr.selectors';
 
@@ -27,12 +37,18 @@ export class CitiesAttrBlockComponent implements OnInit {
     getFormIsOpen$: Observable<boolean> = this.store$.pipe(select(getFormIsOpen));
     edCityAttr: CitiesAttr;
     formDirection: number;
+    citiesFilteredAttrData: CitiesAttr[];
+    curChangedCityAttr: CitiesAttr;
+
+    likesData$: Observable<void> = this.store$.pipe(select(adminLikesSelect.getAdminLikesData));
 
     constructor(private store$: Store) { }
 
     ngOnInit(): void {
-        this.store$.dispatch(initCitiesAttrData())
-    }
+        this.store$.dispatch(initCitiesAttrData());
+        this.store$.dispatch(initAdminLikesData());
+/*        console.log(this.likesData$);
+*/    }
 
     editAttr(attr) {
         this.edCityAttr = attr;
@@ -44,7 +60,8 @@ export class CitiesAttrBlockComponent implements OnInit {
     }
 
     edCurrentAttr(curAttr) {
-        this.store$.dispatch(editCitiesAttrData(curAttr))
+        this.store$.dispatch(editCitiesAttrData(curAttr));
+        this.curChangedCityAttr = curAttr;
     } 
 
     addAttr() {
@@ -53,9 +70,26 @@ export class CitiesAttrBlockComponent implements OnInit {
 
     addNewAttr(curAttr) {
         this.store$.dispatch(addCitiesAttrData(curAttr));
+        this.curChangedCityAttr = curAttr;
     }
 
     closeForm() {
         this.store$.dispatch(closeFormAttrData());
+    }
+
+    changeFilteredList(filteredList) {
+        if (filteredList) {
+            this.citiesFilteredAttrData = filteredList;
+        }
+    }
+
+    likeCount(curAttr) {
+        console.log(curAttr);
+        this.store$.dispatch(addLike(curAttr));
+    }
+
+    changeLikes(curLikes) {
+        console.log(curLikes);
+        this.store$.dispatch(editAdminLikesData(curLikes));
     }
 }

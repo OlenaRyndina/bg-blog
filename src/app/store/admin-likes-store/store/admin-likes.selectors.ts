@@ -1,8 +1,8 @@
 import {  createFeatureSelector, createSelector } from '@ngrx/store';
 
-import {  CITIES_ATTR_DATA_FEATURE_NAME, CitiesAttrDataState } from './cities-attr.reducer';
+import {  ADMIN_LIKES_DATA_FEATURE_NAME, AdminLikesDataState } from './admin-likes.reducer';
 
-const getFeature = createFeatureSelector<CitiesAttrDataState>(CITIES_ATTR_DATA_FEATURE_NAME);
+const getFeature = createFeatureSelector<AdminLikesDataState>(ADMIN_LIKES_DATA_FEATURE_NAME);
 
 export const getLoading = createSelector(
     getFeature,
@@ -19,12 +19,8 @@ export const getServerError = createSelector(
     state => state.serverError
 );
 
-export const getCitiesAttrData = createSelector(
+export const getAdminLikesData = createSelector(
     getFeature,
     state => state.data
 );
 
-export const getFormIsOpen = createSelector(
-    getFeature,
-    state => state.formIsOpen
-); 

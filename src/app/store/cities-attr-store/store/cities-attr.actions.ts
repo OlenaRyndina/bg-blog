@@ -53,3 +53,8 @@ export const addCitiesAttrDataFailed = createAction(
     '[Cities Attr] add failed',
     props<{serverError: string}>()
 );
+
+export const addLike = createAction(
+    '[Cities Attr] plus like',
+    props<{data: CitiesAttr}>()
+);

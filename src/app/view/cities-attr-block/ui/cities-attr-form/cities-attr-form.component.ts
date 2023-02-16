@@ -15,7 +15,7 @@ import { NgForm } from '@angular/forms';
 
 import { CitiesAttr } from '../../../../store/cities-attr-store/store/cities-attr.reducer';
 import { CityAttractions } from '../../../../store/cities-attr-store/models/CityAttractions.model';
-import { Message } from '../../../ui/message/message.model';
+import { Message } from '../../../ui/message/ui/message.model';
 
 @Component({
     selector: 'app-cities-attr-form',

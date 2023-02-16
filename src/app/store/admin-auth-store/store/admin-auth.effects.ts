@@ -13,7 +13,7 @@ import { initAdminAuth, logoutSuccess, extractLoginData, logout } from './admin-
 
 @Injectable()
 export class AdminAuthEffects {
-
+ 
     constructor(
         private actions$: Actions,
         private adminAuthService: AdminAuthService,

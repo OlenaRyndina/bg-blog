@@ -125,7 +125,7 @@ export class CitiesAttrListComponent implements OnChanges {
         this.isShowAll = false;
         this.filteredListAttr = undefined;
     }
-
+ 
     findLike(row) {
         return this.idsOfLikesAttr?.find(item => +item === +row.id ? true : false );
     }

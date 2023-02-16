@@ -9,7 +9,7 @@ import {
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { isAuth } from '../../../store/admin-auth-store/store/admin-auth.selectors';
+import { isAuth } from '../../../../store/admin-auth-store/store/admin-auth.selectors';
 
 @Component({
     selector: 'app-like',
@@ -24,7 +24,7 @@ export class LikeComponent implements OnInit{
     @Input() curLikedItem;
     likesAmount: number;
 
-    @Input() isLiked;
+    @Input() isLiked; 
 
     @Output() likedItem = new EventEmitter<any>();
 
@@ -33,15 +33,19 @@ export class LikeComponent implements OnInit{
     }
     likeCount() {
         this.isLiked = !this.isLiked;
+        console.log(this.isLiked);
         let curLiked = {
             id: this.curLikedItem.id, 
             like: this.curLikedItem.like, 
             isLiked: this.isLiked
         };
-
-        this.isLiked === true 
+        console.log(curLiked.like);
+        this.isLiked 
         ? (curLiked.like++ && this.likesAmount++) 
         : (curLiked.like-- && this.likesAmount--);
+
+        console.log(curLiked.like);
+        console.log(this.likesAmount);
         this.likedItem.emit(curLiked);
     }
 } 

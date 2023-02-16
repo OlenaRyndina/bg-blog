@@ -27,7 +27,7 @@ export class CitiesAttrEffects {
         private store$: Store
     ){}
     
-    saveCitiesAttrDataToLocalStorage$ = createEffect(() => this.actions$.pipe(
+    saveCitiesAttrData$ = createEffect(() => this.actions$.pipe(
         ofType(initCitiesAttrData),
         withLatestFrom(
             this.store$.pipe(select(getLoaded)),
@@ -72,6 +72,6 @@ export class CitiesAttrEffects {
             catchError(error => of(
                 editCitiesAttrDataFailed({serverError: error.serverError})
             ))
-        ))
+        )) 
     ));
 }

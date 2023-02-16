@@ -15,7 +15,7 @@ import {
 } from '../../../../store/cities-attr-store/store/cities-attr.actions';
 import { 
     initAdminLikesData,
-    editAdminLikesData
+    editAdminLikesData 
 } from '../../../../store/admin-likes-store/store/admin-likes.actions';
 
 import * as citiesAttrSelect from '../../../../store/cities-attr-store/store/cities-attr.selectors';

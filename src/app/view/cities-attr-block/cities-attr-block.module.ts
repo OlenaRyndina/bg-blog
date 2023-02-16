@@ -12,31 +12,31 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule }   from '@angular/forms';
 
+import { LikeModule } from '../ui/like/like.module';
 import { CitiesAttrBlockComponent } from './blocks/cities-attr-block/cities-attr-block.component';
 import { CitiesAttrListComponent } from './ui/cities-attr-list/cities-attr-list.component';
 import { CitiesAttrStoreModule } from '../../store/cities-attr-store/cities-attr-store.module';
 import { AdminLikesStoreModule } from '../../store/admin-likes-store/admin-likes-store.module';
+import { CommentsModule } from '../ui/comments/comments.module';
 import { CitiesAttrDialogComponent } from './ui/cities-attr-dialog/cities-attr-dialog.component';
 import { CitiesAttrFormComponent } from './ui/cities-attr-form/cities-attr-form.component';
-import { MessageComponent } from '../ui/message/message.component';
-import { LikeComponent } from '../ui/like/like.component';
 import { CitiesAttrFilterComponent } from './ui/cities-attr-filter/cities-attr-filter.component';
+import { MessageModule } from '../ui/message/message.module';
 
-
+ 
 @NgModule({
   declarations: [
     CitiesAttrBlockComponent,
     CitiesAttrListComponent,
     CitiesAttrDialogComponent,
     CitiesAttrFormComponent,
-    MessageComponent,
-    LikeComponent,
     CitiesAttrFilterComponent
   ],
   imports: [
     CommonModule,
     CitiesAttrStoreModule,
     AdminLikesStoreModule,
+    CommentsModule,
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
@@ -47,13 +47,13 @@ import { CitiesAttrFilterComponent } from './ui/cities-attr-filter/cities-attr-f
     MatCheckboxModule,
     MatRadioModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    LikeModule,
+    MessageModule
   ],
   exports: [
         CitiesAttrBlockComponent,
-        CitiesAttrListComponent,
-        MessageComponent,
-        LikeComponent
+        CitiesAttrListComponent
     ]
 })
 

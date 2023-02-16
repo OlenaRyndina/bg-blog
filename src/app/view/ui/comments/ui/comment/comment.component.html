@@ -1,0 +1,59 @@
+<section class="comment"> 
+    <header class="comment-header">
+	    <div class="comment-header__author">
+	        <img src="" alt="" class="author__avatar">
+	        <div class="author-info__info">
+	        	<span class="author-info__name">{{comment.author}}</span><br>
+	            <span class="author-info__date-pub">{{comment.createdAt | date:'medium'}}</span>
+	        </div>
+	    </div>
+	    <div class="comment-header__comment-menu">
+		    <span 
+		        class="comment-menu__menu-icon">...</span>
+		    <div 
+		        class="comment-menu__list">
+			    <ul>
+				    <li>Поскаржатись</li>
+				    <li>Скопіювати текст</li>
+				    <li>Скопіювати посилання</li>
+			    </ul>
+		    </div>
+	    </div>
+    </header>
+
+    <div class="comment-body">
+	    <div 
+            *ngIf = "replayToComment"
+	        class="comment-body__comment-replay">
+		    <h4 class="comment-replay-title">Відповідь на коментар:</h4>
+		    <div class="author-info__info">
+	        	<span class="author-info__name">{{replayToComment.author}}</span><br>
+	            <span class="author-info__date-pub">{{replayToComment.createdAt}}</span>
+	        </div>
+		    <p 
+		        class="comment-replay-text"
+		        [ngClass]="{'full-text': isFull}"
+		        (click)="openFullText()">{{replayToComment.text}}</p>
+	    </div>
+	    <div class="comment-body__comment-text">{{comment.text}}</div>
+    </div>
+
+    <footer class="comment-footer">
+	    <button 
+	        mat-button color="primary"
+	        *ngIf="!replay"
+	        (click) = "respond(comment)">
+	        Відповісти
+	    </button>
+	    <app-comment-form 
+	        *ngIf="replay === comment.id"
+	        (createComment) = "saveComment($event)">
+	        
+	    </app-comment-form>
+	    <app-like
+	        [isLiked] = "isLiked"
+	        [curLikedItem] = "comment"
+	        (likedItem) = "countLike($event)">
+	    </app-like>
+    </footer>
+</section>

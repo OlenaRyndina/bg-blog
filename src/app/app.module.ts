@@ -15,6 +15,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { AdminAuthStoreModule } from './store/admin-auth-store/admin-auth-store.module';
 import { AdminRegStoreModule } from './store/admin-reg-store/admin-reg-store.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -31,6 +32,9 @@ import { AdminRegStoreModule } from './store/admin-reg-store/admin-reg-store.mod
     StoreRouterConnectingModule.forRoot(),
     AdminAuthStoreModule,
     AdminRegStoreModule
+  ],
+  exports: [
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

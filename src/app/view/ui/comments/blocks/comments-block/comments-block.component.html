@@ -1,0 +1,14 @@
+<app-comment 
+    *ngFor = "let comment of commentsAttrData"
+    [isLiked] = "findLike(comment.id)"
+    [comment] = "comment"
+    [replayToComment] = "getReplay(comment)"
+    (changeCurCommentLikes) = "changeLikes($event)"
+    (replayToId) = "replayComment($event)"
+    (respondComment) = "createNewComment($event)">
+</app-comment>
+<app-comment-form
+   (createComment) = "createNewComment($event)"></app-comment-form>
+<app-message
+    *ngIf = "message"
+    [createMessage] = "message"></app-message>

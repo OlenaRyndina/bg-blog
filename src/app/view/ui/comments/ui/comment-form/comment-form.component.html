@@ -1,0 +1,14 @@
+<form 
+    class="form"
+    #f = "ngForm"
+    (ngSubmit) = "onSubmit(f)">
+  <mat-form-field class="full-width">
+    <mat-label>Ваш коментар</mat-label>
+    <textarea 
+        matInput
+        [(ngModel)] = "text"
+        name = "textarea"
+        #textarea = "ngModel"></textarea>
+  </mat-form-field>
+  <button mat-raised-button>Відправити</button>
+</form>

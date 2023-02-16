@@ -5,7 +5,7 @@ import {
     SimpleChanges } from '@angular/core';
 
 import { Message } from './message.model';
-import { fadeState } from '../animations/fade.animation';
+import { fadeState } from '../../animations/fade.animation';
 
 @Component({
   selector: 'app-message',

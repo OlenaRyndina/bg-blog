@@ -6,6 +6,7 @@ export const ADMIN_AUTH_FEATURE_NAME = 'admin-auth';
 export interface AuthData {
 	accessToken: string;
 	id: number;
+	userName: string;
 	iat: number;
 	exp: number;
 }

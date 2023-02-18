@@ -16,7 +16,7 @@ import { isAuth } from '../../../../store/admin-auth-store/store/admin-auth.sele
     templateUrl: './like.component.html',
     styleUrls: ['./like.component.scss']
 })
-export class LikeComponent implements OnInit{
+export class LikeComponent implements OnInit {
     isAuth$: Observable<boolean> = this.store$.pipe(select(isAuth));
 
     constructor(private store$: Store) {}
@@ -31,21 +31,20 @@ export class LikeComponent implements OnInit{
     ngOnInit() {
         this.likesAmount = this.curLikedItem.like;
     }
+
     likeCount() {
         this.isLiked = !this.isLiked;
-        console.log(this.isLiked);
         let curLiked = {
             id: this.curLikedItem.id, 
             like: this.curLikedItem.like, 
             isLiked: this.isLiked
         };
-        console.log(curLiked.like);
-        this.isLiked 
-        ? (curLiked.like++ && this.likesAmount++) 
-        : (curLiked.like-- && this.likesAmount--);
 
-        console.log(curLiked.like);
-        console.log(this.likesAmount);
+        this.isLiked
+        ? this.likesAmount++
+        : this.likesAmount--;
+
+        curLiked.like = this.likesAmount;
         this.likedItem.emit(curLiked);
     }
 } 

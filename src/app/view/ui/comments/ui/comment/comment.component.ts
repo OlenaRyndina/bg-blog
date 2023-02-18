@@ -39,4 +39,8 @@ export class CommentComponent {
         this.replay = comment.id;
         this.replayToId.emit(comment);
     }
+
+    closeComment() {
+        this.replay = undefined;
+    }
 }

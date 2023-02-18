@@ -48,7 +48,12 @@
 	    <app-comment-form 
 	        *ngIf="replay === comment.id"
 	        (createComment) = "saveComment($event)">
-	        
+	        <div 
+	            mat-raised-button 
+	            class="close-comment"
+	            (click) = "closeComment()">
+	            x
+	        </div>	        
 	    </app-comment-form>
 	    <app-like
 	        [isLiked] = "isLiked"

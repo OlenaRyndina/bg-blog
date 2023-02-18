@@ -92,3 +92,13 @@ h4 {
 	overflow: visible;
 	height: 100%;
 }
+
+.close-comment {
+  position: absolute;
+  bottom: 180px;
+  left: 120px;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}

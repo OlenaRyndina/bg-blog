@@ -1,0 +1,49 @@
+<div class="currency" >
+  <!-- *ngIf = "currencyData" -->
+    <h4>Курс валют</h4>
+    <div 
+        class="currency-rate" 
+        *ngFor = "let rate of rates">
+        <span>{{rate.name}}: </span> 
+        <span> {{rate.value}}</span>
+    </div>
+
+    <h4>Конвертувати:</h4>
+    <mat-form-field>
+        <input 
+            matInput 
+            class="currency-value"
+            [(ngModel)] = "convertValueFrom"
+            (input) = "convertValue()">
+    <mat-select 
+        class="field-converter" 
+        [(ngModel)] = "currencyFrom"
+        (ngModelChange) = "convertValue()">
+        <mat-option 
+            *ngFor = "let name of currencyNames" 
+            [value] = "name">
+            {{name}}
+        </mat-option>    
+    </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <div 
+            class="result">{{convertResult}}</div>
+        <mat-select 
+            class="field-converter" 
+            [(ngModel)] = "currencyTo"
+            (ngModelChange) = "convertValue()">
+        <mat-option 
+            *ngFor = "let name of currencyNames" 
+            [value] = "name">
+            {{name}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+
+
+
+

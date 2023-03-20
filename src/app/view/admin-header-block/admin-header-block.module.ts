@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
+import { CurrencyConverterModule } from '../ui/currency-converter/currency-converter.module';
 import { AdminHeaderBlockComponent } from './blocks/admin-header-block/admin-header-block.component';
 
 
@@ -18,7 +19,8 @@ import { AdminHeaderBlockComponent } from './blocks/admin-header-block/admin-hea
         CommonModule,
         MatToolbarModule,
         MatIconModule,
-        MatButtonModule
+        MatButtonModule,
+        CurrencyConverterModule
     ]
 })
 export class AdminHeaderBlockModule { }

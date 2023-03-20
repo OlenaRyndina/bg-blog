@@ -47,8 +47,7 @@ export class CitiesAttrBlockComponent implements OnInit {
     ngOnInit(): void {
         this.store$.dispatch(initCitiesAttrData());
         this.store$.dispatch(initAdminLikesData());
-/*        console.log(this.likesData$);
-*/    }
+    }
 
     editAttr(attr) {
         this.edCityAttr = attr;

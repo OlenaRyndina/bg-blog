@@ -19,10 +19,7 @@ export class CommentsService {
         console.log(comment);
         return this.httpClient.put<Comment>(`http://localhost:3000/comments/city-attr/${comment.id}`, comment);    
     }
-    /*
-    addCityAttrData(attr) {
-        return this.httpClient.post<CitiesAttr>('http://localhost:3000/city-attr', attr);  
-    }*/
+    
     addCommentsCityAttrData(comment) {
         return this.httpClient.post<Comment>('http://localhost:3000/comments/city-attr', comment);
     }

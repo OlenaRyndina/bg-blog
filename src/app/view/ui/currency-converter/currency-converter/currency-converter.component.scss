@@ -1,0 +1,35 @@
+:host {
+    display: flex;
+    align-items: center;
+}
+
+.currency {
+	display: flex;
+    align-items: center;
+}
+
+mat-form-field {
+	margin-right: 10px;
+	width: 130px;
+	text-align: center;
+}
+
+h4, div {
+	margin-right: 10px;
+	font-size: 0.8rem;
+}
+
+.field-converter {
+	width: 70px;
+}
+
+.result {
+	display: inline-block;
+	width: 40px;
+	text-align: right;
+}
+
+.currency-value {
+	width: 70px;
+    text-align: center;
+}

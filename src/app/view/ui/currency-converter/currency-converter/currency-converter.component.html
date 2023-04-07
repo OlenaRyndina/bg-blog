@@ -1,4 +1,11 @@
-<div class="currency" >
+<div 
+    class="currency-icon"
+    (click) = "showCurrencyPannel()">
+    <mat-icon class="icon">account_balance_wallet</mat-icon>
+</div>
+<div 
+    class= "currency"
+    [ngClass] = "{'showPannel': isShowCurrencyPannel}">
   <!-- *ngIf = "currencyData" -->
     <h4>Курс валют</h4>
     <div 

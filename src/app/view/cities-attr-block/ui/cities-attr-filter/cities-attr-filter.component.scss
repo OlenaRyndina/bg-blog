@@ -1,7 +1,14 @@
+:host {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
 form {
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    max-width: 1280px;
+    margin: 0 auto;   
 }
 
 .form-item {
@@ -30,4 +37,46 @@ h4 {
 
 button {
   height: 40px;
+}
+
+@media (max-width: 1200px) {
+
+    .form-item {
+        max-width: 150px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 1024px) {
+    :host {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+    }
+    .form-item {
+        max-width: 350px;
+        width: 350px;
+        height: 70px;
+        flex-direction: row;
+        margin-bottom: 10px;
+    }
+    
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 320px) {
+    form {
+        font-size: 12px;
+    }
+
+    .form-item {
+        max-width: 300px;
+        width: 300px;
+    }
 }

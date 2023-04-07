@@ -21,7 +21,7 @@ export class CurrencyConverterEffects {
         private store$: Store
     ){}
     
-    getCurrencyData$ = createEffect(() => this.actions$.pipe(
+    /*getCurrencyData$ = createEffect(() => this.actions$.pipe(
         ofType(initCurrencyData),
         withLatestFrom(
             this.store$.pipe(select(getLoaded)),
@@ -35,9 +35,9 @@ export class CurrencyConverterEffects {
             })
             .catch(error => initCurrencyDataFailed({serverError: error.serverError}))
         ))
-    );
+    );*/
 }
-
+ 
  
 
 

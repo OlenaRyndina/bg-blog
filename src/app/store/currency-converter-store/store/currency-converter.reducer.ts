@@ -19,7 +19,7 @@ const initialState: CurrencyDataState = {
     loaded: false,
     loading: false,
     serverError: '',
-    data: [1]
+    data: []
 };
 
 export const CurrencyReducer = createReducer(

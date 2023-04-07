@@ -23,6 +23,7 @@ export class CurrencyConverterComponent implements OnInit {
     currencyTo = 'UAH';
     convertValueFrom;
     convertResult;
+    isShowCurrencyPannel = false;
 
     constructor(private store$: Store) { }
 
@@ -53,5 +54,9 @@ export class CurrencyConverterComponent implements OnInit {
             })
             this.convertResult = (this.convertValueFrom * rateCurFrom / rateCurTo).toFixed(2);
         }       
+    }
+
+    showCurrencyPannel() {
+        this.isShowCurrencyPannel = !this.isShowCurrencyPannel;
     }
 }

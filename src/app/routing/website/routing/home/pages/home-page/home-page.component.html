@@ -1,12 +1,13 @@
 <mat-toolbar color="primary">
-    <span>Discovery country</span>
-    <span class="example-spacer"></span>
+    <span class="app-name">Discovery country</span>
+    <span class="spacer"></span>
+    <app-weather-forecast></app-weather-forecast>
     <app-currency-converter></app-currency-converter>
     <a class="menu__link menu__link-login" routerLink="admin/auth">
         <span>Login</span>
         <mat-icon>login</mat-icon>
     </a>
-    <a class="menu__link" routerLink="admin/auth/registration">
+    <a class="menu__link menu__link-reg" routerLink="admin/auth/registration">
         <span>SignUp</span>
         <mat-icon>add</mat-icon>
     </a>

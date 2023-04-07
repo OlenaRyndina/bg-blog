@@ -1,7 +1,13 @@
+<div 
+    class="menu-icon"
+    (click) = "showTree()">
+    <mat-icon class="icon">menu</mat-icon>
+</div>
 <mat-tree
     [dataSource]="dataSource" 
     [treeControl]="treeControl" 
-    class="tree">
+    [ngClass] = "{'showTree': isShowTree}"
+    class="tree hideTree">
     <mat-tree-node 
         *matTreeNodeDef="let node" 
         matTreeNodeToggle>

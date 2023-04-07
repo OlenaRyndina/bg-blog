@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { CurrencyConverterModule } from '../ui/currency-converter/currency-converter.module';
 import { AdminHeaderBlockComponent } from './blocks/admin-header-block/admin-header-block.component';
-
+import { WeahterForecastModule } from '../ui/weather-forecast/weather-forecast.module';
 
 @NgModule({
     declarations: [
@@ -20,7 +20,8 @@ import { AdminHeaderBlockComponent } from './blocks/admin-header-block/admin-hea
         MatToolbarModule,
         MatIconModule,
         MatButtonModule,
-        CurrencyConverterModule
+        CurrencyConverterModule,
+        WeahterForecastModule
     ]
 })
 export class AdminHeaderBlockModule { }

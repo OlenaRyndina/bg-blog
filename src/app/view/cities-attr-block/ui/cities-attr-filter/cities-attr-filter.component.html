@@ -2,14 +2,14 @@
 <form #form="ngForm" 
       (ngSubmit)="onSubmit(form)">
 	<mat-form-field appearance="fill" class="form-item">
-        <mat-label>Select an option</mat-label>
+        <mat-label>Місто</mat-label>
         <mat-select [(ngModel)]=city  name="city">
             <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="form-item">
-        <mat-label>Select an option</mat-label>
+        <mat-label>Куди йдемо</mat-label>
         <mat-select [(ngModel)]=cityAttr  name="cityAttr">
             <mat-option *ngFor="let attr of cityAttrs" [value]="attr">{{attr}}</mat-option>
         </mat-select>

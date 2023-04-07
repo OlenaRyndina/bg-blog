@@ -23,4 +23,23 @@
 
 .footer {
 	grid-area: footer;
+} 
+
+@media (max-width: 1200px) {
+    
+}
+
+@media (max-width: 1024px) {
+    .grid-container {
+	    grid-template-rows: 150px 1fr 30px;
+	    grid-template-columns: 0;
+    }
+}
+
+@media (max-width: 768px) {
+	
+}
+
+@media (max-width: 480px) {
+
 }

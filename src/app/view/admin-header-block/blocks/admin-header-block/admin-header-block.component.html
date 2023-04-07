@@ -1,13 +1,17 @@
 <mat-toolbar color="primary">
 	<mat-toolbar-row>
-		<span>Discovery Country</span>
+		<span class="app-name">Discovery Country</span>
+		<app-weather-forecast></app-weather-forecast>
 		<app-currency-converter></app-currency-converter>
 		<span class="spacer"></span>
 
 		<button 
 		    mat-raised-button 
-		    (click)="onLogout()">
-            <mat-icon class="icon">logout</mat-icon>
+		    (click)="onLogout()"
+		    class = "btn_logout">
+            <mat-icon class="icon menu__link">logout</mat-icon>
 		</button>		
 	</mat-toolbar-row>
 </mat-toolbar>
+
+

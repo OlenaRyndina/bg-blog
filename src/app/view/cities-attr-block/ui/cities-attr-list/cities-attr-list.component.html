@@ -123,7 +123,8 @@
                 *ngIf="isAuth"
                 (click)="editAttr(row, tableRow)"
                 #tableRow>
-                Редагувати
+                <mat-icon class="btn-edit__icon-edit">edit</mat-icon>
+                <span class="btn-edit__edit">Редагувати</span>
             </button>
         </td>
     </ng-container>

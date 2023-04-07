@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
 import { CurrencyConverterModule } from '../../../../view/ui/currency-converter/currency-converter.module';
+import { WeahterForecastModule } from '../../../../view/ui/weather-forecast/weather-forecast.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
         MatToolbarModule,
         MatIconModule,
         CurrencyConverterModule,
+        WeahterForecastModule,
         RouterModule.forChild([
             {
                 path: '',

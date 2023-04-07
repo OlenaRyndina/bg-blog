@@ -11,6 +11,8 @@ import { NestedTreeNode } from '../../../../store/admin-menu-store/store/admin-m
   styleUrls: ['./nested-tree-ui.component.scss']
 })
 export class NestedTreeUiComponent implements OnChanges {
+
+    isShowTree = false; 
     
     @Input() nodes: NestedTreeNode[] = [];
 
@@ -25,6 +27,8 @@ export class NestedTreeUiComponent implements OnChanges {
     }
 
    hasChild = (_: number, node: NestedTreeNode) => !!node.children && node.children.length > 0;
-
-
+   
+   showTree() {
+        this.isShowTree = !this.isShowTree;
+   }
 }

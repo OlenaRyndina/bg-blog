@@ -1,0 +1,25 @@
+<div 
+    class="currency-icon"
+    (click) = "showWeatherPannel()">
+    <mat-icon class="icon">brightness_6</mat-icon>
+</div>
+<div 
+    *ngIf = "weatherData"
+    class="weather-data"
+    [ngClass] = "{'showPannel': isShowWeatherPannel}">
+    <span class="city-name">{{weatherData.location.name }} &nbsp;</span>
+    <span class="city-country">({{weatherData.location.country}}):</span>
+    <img 
+        class="weather-icon" 
+        src="{{weatherData.current.condition.icon}}" alt="">
+    <span>{{weatherData.current.temp_c}} <sup>o</sup>C</span>
+    <mat-form-field>
+        <input 
+            matInput 
+            class="weather-forecast"
+            [(ngModel)] = "cityName"
+            (change) = "getWeatherForecastOfTheCity()">
+    </mat-form-field>
+</div>
+
+

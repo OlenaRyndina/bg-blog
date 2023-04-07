@@ -1,6 +1,7 @@
 .comment {
 	margin: 0 auto;
 	max-width: 500px;
+	width: 100%;
 	padding: 10px;
 	background-color: #fff;
 	box-shadow: 1px 1px 10px #f1f1f1;
@@ -101,4 +102,20 @@ h4 {
   width: 30px;
   height: 30px;
   cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+   
+}
+
+@media (max-width: 1024px) {
+    
+}
+
+@media (max-width: 768px) {
+	
+}
+
+@media (max-width: 480px) {
+    
 }
